@@ -1,0 +1,69 @@
+#newPage{
+    display: none;
+}
+
+.panel-layout{
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*-----------------FORM DESIGN----------------*/
+
+.invalid-input{
+    border-bottom: 2px solid #FF4081 !important;
+}
+
+.invalid-input-label{
+    color: #FF4081 !important;
+}
+
+/*---------------REQUEST DESIGN---------------*/
+
+.request-container{
+    display: flex!important;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.panel-chart{
+    min-height: 420px;
+}
+
+.loader-container{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    border: 5px solid #BDBDBD;
+    border-top: 5px solid #FBC02D;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.name-input{
+    border-bottom-color: #fbc02d !important;
+}
+
+.error-note{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

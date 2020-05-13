@@ -1,0 +1,54 @@
+/*--------------------APPBAR--------------------*/
+
+.appbar{
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+}
+
+.appbar-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.appbar-container .mui-btn{
+    height: 100%;
+}
+
+.appbar-title{
+    flex-grow: 1;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.appbar-icon{
+    color: white;
+}
+
+/*--------------------AVALIABLE CONTENT--------------------*/
+
+.appbar-rest{
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    width: 100%;
+    height: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.appbar-rest.scroll{
+    overflow: scroll;
+}
+
+.rest-center{
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    align-self: center;
+}

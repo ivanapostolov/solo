@@ -1,0 +1,106 @@
+/*@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');*/
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Montserrat'),
+    local('Montserrat'),
+    url(../../fonts/Montserrat-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(../../fonts/MaterialIcons-Regular.woff2) format('woff2'),
+    url(../../fonts/MaterialIcons-Regular.woff) format('woff'),
+    url(../../fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    vertical-align: middle!important;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+body{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat' !important;
+}
+
+/*--------------------PAGE TRANSITION--------------------*/
+
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    background-color: #E0E0E0;
+}
+
+.page.left {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+}
+
+.page.center {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.page.right {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+}
+
+.page.transition {
+    -webkit-transition-duration: .15s;
+    transition-duration: .15s;
+}
+
+.flex-column {
+    display: flex!important;
+    flex-flow: column;
+    height: 100%;
+}
+
+/*--------------------MUI BUTTON--------------------*/
+
+.mui-btn.mui-btn--flat:active, .mui-btn.mui-btn--flat:focus, .mui-btn.mui-btn--flat:hover {
+    background-color: transparent;
+}
+
+/*--------------------MUI TAB-----------------------*/
+
+.mui-tabs__bar > li.mui--is-active {
+    border-bottom: 2px solid #FBC02D;
+}

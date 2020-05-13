@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
+    <!--====================META DATA====================-->
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <!--====================CSS LIBRARIES====================-->
+    <link rel="stylesheet" type="text/css" href="css/css-libraries/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="css/css-libraries/mui-colors.css">
+
+    <!--====================JS LIBRARIES====================-->
+    <script src="js/js-libraries/jquery-3.3.1.min.js"></script>
+    <script src="js/js-libraries/mui.min.js"></script>
+    <script src="js/js-libraries/vue.js"></script>
+    <script src="js/js-libraries/charts.min.js"></script>
+
+    <!--====================CSS CUSTOM====================-->
+    <link rel="stylesheet" type="text/css" href="css/css-custom/general.css">
+    <link rel="stylesheet" type="text/css" href="css/css-custom/appbar.css">
+    <link rel="stylesheet" type="text/css" href="css/css-custom/slide-menu.css">
+    <link rel="stylesheet" type="text/css" href="css/css-custom/page-home.css">
+    <link rel="stylesheet" type="text/css" href="css/css-custom/page-new.css">
+    <link rel="stylesheet" type="text/css" href="css/css-custom/page-monitoring.css">
+
+    <!--====================JS COMPONENTS====================-->
+    <script src="js/js-custom/components/appbar.js"></script>
+    <script src="js/js-custom/components/button-option.js"></script>
+    <script src="js/js-custom/components/patch.js"></script>
+    <script src="js/js-custom/components/tab-bar.js"></script>
+    <script src="js/js-custom/components/form-container.js"></script>
+    <script src="js/js-custom/components/request-container.js"></script>
+    <script src="js/js-custom/components/map-container.js"></script>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+    <!--====================JS CUSTOM====================-->
+    <script src="js/js-custom/root.js"></script>
+    <script src="js/js-custom/map-handler.js"></script>
+
+    <!--====================GOOGLE MAPS API CALL====================-->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD91wVBu5lcSQty3BYUKfGVlpRalES89uA&callback=loadMap"></script>
+
+    <title>Solo</title>
+</head>
+
+<body id="body" class="mui--no-user-select">
+    <div id="root">
+        <!--======================
+        **********************
+        ***** Home Page ******
+        **********************
+        =======================-->
+
+        <div id="homePage" class="page transition center">
+            <div class="flex-column">
+                <appbar title="home"></appbar>
+
+                <div class="appbar-rest flex-column">
+                    <patch image="economical.png" title="profit calculation" content="Simple, free and convenient way of calculating and monitoring the profit from potential PV installation."></patch>
+                </div>
+            </div>
+        </div>
+
+        <!--======================
+        **********************
+        ****** New Page ******
+        **********************
+        =======================-->
+
+        <div id="newPage" class="page transition center">
+            <div class="flex-column">
+                <appbar title="new"></appbar>
+
+                <div class="appbar-rest flex-column">
+                    <tab-bar :tabs="[{control: 'formPane', text: 'values'}, {control: 'formMapPane', text: 'map'}]"></tab-bar>
+
+                    <div class="appbar-rest scroll">
+                        <div class="rest-center mui-tabs__pane mui--is-active" id="formPane">
+                            <form-container v-if="!params" v-on:request="handleRequest"></form-container>
+                            <request-container v-else :params="params" :save="true"></request-container>
+                        </div>
+                        <map-container id="formMapPane"></map-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--======================
+        ***********************
+        *** Monitoring Page ***
+        ***********************
+        =======================-->
+
+        <div id="monitoringPage" class="page transition center">
+            <div class="flex-column">
+                <appbar title="monitoring"></appbar>
+
+                <div class="appbar-rest scroll flex-column">
+                    <div class="rest-center">
+                        <div class="panel-layout mui-panel">
+                            <div class="mui-container-fluid mui--text-headline mui--text-center" style="padding-bottom: 10px">Example</div>
+                            <div style="width: 100%; height: auto;">
+                                <img style="width: 100%; height: auto;" src="https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&markers=color:red%7Clabel:C%7C40.718217,-73.998284&zoom=12&size=600x300&key=AIzaSyD91wVBu5lcSQty3BYUKfGVlpRalES89uA"
+                                />
+                            </div>
+                            <table class="mui-table mui-table--bordered">
+                                <tbody>
+                                    <tr>
+                                        <td class="mui--color-yellow-700">Area</td>
+                                        <td class="mui--text-right">12</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button class="mui-btn mui-btn--flat mui--color-white mui--bg-color-yellow-700">View</button>
+                            <button class="mui-btn mui-btn--flat mui--pull-right mui--color-white mui--bg-color-blue-grey-900">Delete</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--======================
+        **********************
+        ***** Menu Slide *****
+        **********************
+        =======================-->
+
+        <div id="menuSlide" class="slide transition left">
+            <appbar title="solo"></appbar>
+
+            <div class="appbar-rest scroll">
+                <div class="menu-section">
+                    <button-option icon="home" v-on:select="menuClick" text="Home" reference="homePage"></button-option>
+                </div>
+                <div class="menu-section">
+                    <button-option icon="add_box" v-on:select="menuClick" text="New installation" reference="newPage"></button-option>
+                </div>
+                <div class="menu-section">
+                    <button-option icon="equalizer" v-on:select="menuClick" text="Monitoring" reference="monitoringPage"></button-option>
+                </div>
+                <div class="menu-section">
+                    <button-option icon="info" v-on:select="menuClick" text="Info" reference="infoPage"></button-option>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!--
+
+    https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
+&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
+&markers=color:red%7Clabel:C%7C40.718217,-73.998284
+&key=AIzaSyD91wVBu5lcSQty3BYUKfGVlpRalES89uA
+
+https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&markers=color:red%7Clabel:C%7C40.718217,-73.998284&zoom=12&size=600x400&key=AIzaSyD91wVBu5lcSQty3BYUKfGVlpRalES89uA
+https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&markers=color:red%7Clabel:C%7C40.718217,-73.998284&zoom=12&size=600x400&key=AIzaSyD91wVBu5lcSQty3BYUKfGVlpRalES89uA
+-->
+
+</html>
